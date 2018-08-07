@@ -1,0 +1,204 @@
+<html>
+
+<head>
+    Plane Crash Fatality Predictor
+</head>
+<br>
+
+<body>
+<br>
+
+    <fieldset>
+        <legend>Choose flight purpose</legend>
+
+        <div class='Flight_Purpose'>
+            <input type='radio' id='Flight_Purpose_Business' name='flight_purpose'
+                   value='0.0' />
+            <label for='Flight_Purpose_Business'>Business</label>
+        </div>
+
+        <div class='Flight_Purpose'>
+            <input type='radio' id='Flight_Purpose_Personal' name='flight_purpose'
+                   value='0.0' />
+            <label for='Flight_Purpose_Personal'>Personal</label>
+        </div>
+
+        <div class='Flight_Purpose'>
+            <input type='radio' id='Flight_Purpose_Aerial_Application' name='flight_purpose'
+                   value='0.0' />
+            <label for='Flight_Purpose_Aerial_Application'>Aerial Application</label>
+        </div>
+
+        <div class='Flight_Purpose'>
+            <input type='radio' id='Flight_Purpose_Ferry' name='flight_purpose'
+                   value='0.0' />
+            <label for='Flight_Purpose_Ferry'>Ferry</label>
+        </div>
+
+        <div class='Flight_Purpose'>
+            <input type='radio' id='Flight_Purpose_Instructional' name='flight_purpose'
+                   value='0.0' />
+            <label for='Flight_Purpose_Instructional'>Instructional</label>
+        </div>
+
+        <div class='Flight_Purpose'>
+            <input type='radio' id='Flight_Purpose_Positioning' name='flight_purpose'
+                   value='0.0' />
+            <label for='Flight_Purpose_Positioning'>Positioning</label>
+        </div>
+
+        <div class='Flight_Purpose'>
+            <input type='radio' id='Flight_Purpose_Other' name='flight_purpose'
+                   value='0.0' />
+            <label for='Flight_Purpose_Other'>Other</label>
+        </div>
+
+    </fieldset>
+<br>
+    <fieldset>
+        <legend>Current weather conditions</legend>
+
+        <div class='Weather_Condition'>
+            <input type='radio' id='Weather_Condition_VMC' name='weather'
+                   value="0.0" />
+            <label for='Weather_Condition_VMC'>Visible flight conditions</label>
+        </div>
+
+        <div class='Weather_Condition'>
+            <input type='radio' id='Weather_Condition_IMC' name='weather'
+                   value='0.0' />
+            <label for='Weather_Condition_IMC'>Instrumentation required</label>
+        </div>
+
+    </fieldset>
+<br>
+    <fieldset>
+        <legend>Phase of flight crash initiates</legend>
+
+        <div class='Broad_Phase_of_Flight'>
+            <input type='radio' id='Broad_Phase_of_Flight_TAKEOFF' name='flight_phase'
+                   value='0.0' />
+            <label for='Broad_Phase_of_Flight_TAKEOFF'>Takeoff</label>
+        </div>
+
+        <div class='Broad_Phase_of_Flight'>
+            <input type='radio' id='Broad_Phase_of_Flight_INFLIGHT' name='flight_phase'
+                   value='0.0' />
+            <label for='Broad_Phase_of_Flight_INFLIGHT'>In-flight</label>
+        </div>
+
+        <div class='Broad_Phase_of_Flight'>
+            <input type='radio' id='Broad_Phase_of_Flight_LANDING' name='flight_phase'
+                   value='0.0' />
+            <label for='Broad_Phase_of_Flight_LANDING'>Landing</label>
+        </div>
+
+        <div class='Broad_Phase_of_Flight'>
+            <input type='radio' id='Broad_Phase_of_Flight_TAXI' name='flight_phase'
+                   value='0.0' />
+            <label for='Broad_Phase_of_Flight_TAXI'>Taxi</label>
+        </div>
+
+    </fieldset>
+<br>
+    <fieldset>
+        <legend>Type of flight</legend>
+
+        <div class='Commercial_Flight'>
+            <input type='radio' id='Commercial_Flight_Yes' name='flight_type'
+                   value='0.0' />
+            <label for='Commercial_Flight'>Commercial</label>
+        </div>
+
+        <div class='Commercial_Flight'>
+            <input type='radio' id='Commercial_Flight_No' name='flight_type'
+                   value='0.0' />
+            <label for='Commercial_Flight_No'>Private</label>
+        </div>
+
+    </fieldset>
+<br>
+  <div>
+    <button id="submit">Make prediction</button>
+  </div>
+  <br>
+  Our prediction is:
+  <br>
+  <table>
+    <tr><td>You will</td><td id="hard_predict"></td></tr>
+    <tr><td>Probability</td><td id="soft_predict"></td></tr>
+  </table>
+
+  <img width="100%" src='' id='gif'/>
+
+</body>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script>
+
+
+  $('#submit').click( () => { cool();
+                              render_crashimage(); } );
+
+  function render_crashimage(prediction){
+
+      let img = document.getElementById('gif');
+      console.log('the prediction is' + prediction);
+      switch (prediction === 1) {
+
+        case true:
+         console.log('this is true ' + prediction)
+         img.src='/static/images/alive.gif';
+         break;
+
+        case false:
+         console.log('this is false ' + prediction)
+         img.src='/static/images/fatal.gif';
+         break;
+      }
+
+
+    };
+
+  function cool(){
+    let features = {
+  'Flight_Purpose_Aerial Application': document.getElementById('Flight_Purpose_Aerial_Application').checked,
+  'Flight_Purpose_Business': document.getElementById('Flight_Purpose_Business').checked,
+  'Flight_Purpose_Ferry': document.getElementById('Flight_Purpose_Ferry').checked,
+  'Flight_Purpose_Instructional': document.getElementById('Flight_Purpose_Instructional').checked,
+  'Flight_Purpose_Other': document.getElementById('Flight_Purpose_Other').checked,
+  'Flight_Purpose_Personal': document.getElementById('Flight_Purpose_Personal').checked,
+  'Flight_Purpose_Positioning': document.getElementById('Flight_Purpose_Positioning').checked,
+  'Weather_Condition_IMC': document.getElementById('Weather_Condition_IMC').checked,
+  'Weather_Condition_VMC': document.getElementById('Weather_Condition_VMC').checked,
+  'Broad_Phase_of_Flight_INFLIGHT': document.getElementById('Broad_Phase_of_Flight_INFLIGHT').checked,
+  'Broad_Phase_of_Flight_LANDING': document.getElementById('Broad_Phase_of_Flight_LANDING').checked,
+  'Broad_Phase_of_Flight_TAKEOFF': document.getElementById('Broad_Phase_of_Flight_TAKEOFF').checked,
+  'Broad_Phase_of_Flight_TAXI': document.getElementById('Broad_Phase_of_Flight_TAXI').checked,
+  'Commercial_Flight_No': document.getElementById('Commercial_Flight_No').checked,
+  'Commercial_Flight_Yes': document.getElementById('Commercial_Flight_Yes').checked
+}
+    console.log(features);
+
+    $.ajax({
+      type: "POST",
+      contentType: "application/json; charset=utf-8",
+      url: "/predict",  // Replace with URL of POST handler
+      dataType: "json",
+      async: true,
+      data: JSON.stringify(features),
+      success: (result) => {
+        $('#hard_predict').html(result['prediction'] ? 'be totally fine man!' : 'die in a burning blaze of hellfire!' );
+        $('#soft_predict').html(result['prob_fatal']);
+
+        render_crashimage(result['prediction']);
+      },
+      error: (result) => {
+        alert('I dunno what you did');
+      }
+    })
+
+  }
+
+  </script>
+
+</html>

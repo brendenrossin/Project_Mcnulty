@@ -1,126 +1,183 @@
 <html>
 
 <head>
-    Plane Crash Fatality Predictor
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plane Crash Fatality Predictor</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <br>
 
 <body>
+    <nav class="navbar navbar-inverse navbar-static-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Plain Plane Crash Flask Crashtest</a>
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#">About</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Air Carriers</a></li>
+						<li><a href="#">Private pilots</a></li>
+						<li><a href="#">Air Traffic Control</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 <br>
 
-    <fieldset>
-        <legend>Choose flight purpose</legend>
+<div class="jumbotron">
+	<div class="container">
+		<h1>Want to fly? Don't die!</h1>
+		<p>Plane crashes happen. Let us make sure you come out alive. Choose flight parameters below.</p>
+		<br>
+		<p><a class="btn btn-primary btn-lg" href="#" id="submit" role="button">Make prediction</a></p>
+	</div>
+</div>
 
-        <div class='Flight_Purpose'>
-            <input type='radio' id='Flight_Purpose_Business' name='flight_purpose'
-                   value='0.0' />
-            <label for='Flight_Purpose_Business'>Business</label>
-        </div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+            <fieldset>
+                <legend>
+                    <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+                    Flight purpose</legend>
 
-        <div class='Flight_Purpose'>
-            <input type='radio' id='Flight_Purpose_Personal' name='flight_purpose'
-                   value='0.0' />
-            <label for='Flight_Purpose_Personal'>Personal</label>
-        </div>
+                <div class='Flight_Purpose'>
+                    <input type='radio' id='Flight_Purpose_Business' name='flight_purpose'
+                           value='0.0' />
+                    <label for='Flight_Purpose_Business'>Business</label>
+                </div>
 
-        <div class='Flight_Purpose'>
-            <input type='radio' id='Flight_Purpose_Aerial_Application' name='flight_purpose'
-                   value='0.0' />
-            <label for='Flight_Purpose_Aerial_Application'>Aerial Application</label>
-        </div>
+                <div class='Flight_Purpose'>
+                    <input type='radio' id='Flight_Purpose_Personal' name='flight_purpose'
+                           value='0.0' />
+                    <label for='Flight_Purpose_Personal'>Personal</label>
+                </div>
 
-        <div class='Flight_Purpose'>
-            <input type='radio' id='Flight_Purpose_Ferry' name='flight_purpose'
-                   value='0.0' />
-            <label for='Flight_Purpose_Ferry'>Ferry</label>
-        </div>
+                <div class='Flight_Purpose'>
+                    <input type='radio' id='Flight_Purpose_Aerial_Application' name='flight_purpose'
+                           value='0.0' />
+                    <label for='Flight_Purpose_Aerial_Application'>Aerial Application</label>
+                </div>
 
-        <div class='Flight_Purpose'>
-            <input type='radio' id='Flight_Purpose_Instructional' name='flight_purpose'
-                   value='0.0' />
-            <label for='Flight_Purpose_Instructional'>Instructional</label>
-        </div>
+                <div class='Flight_Purpose'>
+                    <input type='radio' id='Flight_Purpose_Ferry' name='flight_purpose'
+                           value='0.0' />
+                    <label for='Flight_Purpose_Ferry'>Ferry</label>
+                </div>
 
-        <div class='Flight_Purpose'>
-            <input type='radio' id='Flight_Purpose_Positioning' name='flight_purpose'
-                   value='0.0' />
-            <label for='Flight_Purpose_Positioning'>Positioning</label>
-        </div>
+                <div class='Flight_Purpose'>
+                    <input type='radio' id='Flight_Purpose_Instructional' name='flight_purpose'
+                           value='0.0' />
+                    <label for='Flight_Purpose_Instructional'>Instructional</label>
+                </div>
 
-        <div class='Flight_Purpose'>
-            <input type='radio' id='Flight_Purpose_Other' name='flight_purpose'
-                   value='0.0' />
-            <label for='Flight_Purpose_Other'>Other</label>
-        </div>
+                <div class='Flight_Purpose'>
+                    <input type='radio' id='Flight_Purpose_Positioning' name='flight_purpose'
+                           value='0.0' />
+                    <label for='Flight_Purpose_Positioning'>Positioning</label>
+                </div>
 
-    </fieldset>
+                <div class='Flight_Purpose'>
+                    <input type='radio' id='Flight_Purpose_Other' name='flight_purpose'
+                           value='0.0' />
+                    <label for='Flight_Purpose_Other'>Other</label>
+                </div>
+
+            </fieldset>
+		</div>
+		<div class="col-md-3">
+            <fieldset>
+                <legend>
+                    <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span>
+                    Weather conditions</legend>
+
+                <div class='Weather_Condition'>
+                    <input type='radio' id='Weather_Condition_VMC' name='weather'
+                           value="0.0" />
+                    <label for='Weather_Condition_VMC'>Visible flight conditions</label>
+                </div>
+
+                <div class='Weather_Condition'>
+                    <input type='radio' id='Weather_Condition_IMC' name='weather'
+                           value='0.0' />
+                    <label for='Weather_Condition_IMC'>Instrumentation required</label>
+                </div>
+
+            </fieldset>
+		</div>
+		<div class="col-md-3">
+            <fieldset>
+                <legend>
+                    <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+                    Crash flight phase
+                </legend>
+
+                <div class='Broad_Phase_of_Flight'>
+                    <input type='radio' id='Broad_Phase_of_Flight_TAKEOFF' name='flight_phase'
+                           value='0.0' />
+                    <label for='Broad_Phase_of_Flight_TAKEOFF'>Takeoff</label>
+                </div>
+
+                <div class='Broad_Phase_of_Flight'>
+                    <input type='radio' id='Broad_Phase_of_Flight_INFLIGHT' name='flight_phase'
+                           value='0.0' />
+                    <label for='Broad_Phase_of_Flight_INFLIGHT'>In-flight</label>
+                </div>
+
+                <div class='Broad_Phase_of_Flight'>
+                    <input type='radio' id='Broad_Phase_of_Flight_LANDING' name='flight_phase'
+                           value='0.0' />
+                    <label for='Broad_Phase_of_Flight_LANDING'>Landing</label>
+                </div>
+
+                <div class='Broad_Phase_of_Flight'>
+                    <input type='radio' id='Broad_Phase_of_Flight_TAXI' name='flight_phase'
+                           value='0.0' />
+                    <label for='Broad_Phase_of_Flight_TAXI'>Taxi</label>
+                </div>
+
+            </fieldset>
+		</div>
+
+        <div class="col-md-3">
+            <fieldset>
+                <legend>
+                    <span class="glyphicon glyphicon-plane" aria-hidden="true"></span>
+                    Flight type</legend>
+
+                <div class='Commercial_Flight'>
+                    <input type='radio' id='Commercial_Flight_Yes' name='flight_type'
+                           value='0.0' />
+                    <label for='Commercial_Flight'>Commercial</label>
+                </div>
+
+                <div class='Commercial_Flight'>
+                    <input type='radio' id='Commercial_Flight_No' name='flight_type'
+                           value='0.0' />
+                    <label for='Commercial_Flight_No'>Private</label>
+                </div>
+
+            </fieldset>
+		</div>
+	</div>
+</div>
+
 <br>
-    <fieldset>
-        <legend>Current weather conditions</legend>
-
-        <div class='Weather_Condition'>
-            <input type='radio' id='Weather_Condition_VMC' name='weather'
-                   value="0.0" />
-            <label for='Weather_Condition_VMC'>Visible flight conditions</label>
-        </div>
-
-        <div class='Weather_Condition'>
-            <input type='radio' id='Weather_Condition_IMC' name='weather'
-                   value='0.0' />
-            <label for='Weather_Condition_IMC'>Instrumentation required</label>
-        </div>
-
-    </fieldset>
-<br>
-    <fieldset>
-        <legend>Phase of flight crash initiates</legend>
-
-        <div class='Broad_Phase_of_Flight'>
-            <input type='radio' id='Broad_Phase_of_Flight_TAKEOFF' name='flight_phase'
-                   value='0.0' />
-            <label for='Broad_Phase_of_Flight_TAKEOFF'>Takeoff</label>
-        </div>
-
-        <div class='Broad_Phase_of_Flight'>
-            <input type='radio' id='Broad_Phase_of_Flight_INFLIGHT' name='flight_phase'
-                   value='0.0' />
-            <label for='Broad_Phase_of_Flight_INFLIGHT'>In-flight</label>
-        </div>
-
-        <div class='Broad_Phase_of_Flight'>
-            <input type='radio' id='Broad_Phase_of_Flight_LANDING' name='flight_phase'
-                   value='0.0' />
-            <label for='Broad_Phase_of_Flight_LANDING'>Landing</label>
-        </div>
-
-        <div class='Broad_Phase_of_Flight'>
-            <input type='radio' id='Broad_Phase_of_Flight_TAXI' name='flight_phase'
-                   value='0.0' />
-            <label for='Broad_Phase_of_Flight_TAXI'>Taxi</label>
-        </div>
-
-    </fieldset>
-<br>
-    <fieldset>
-        <legend>Type of flight</legend>
-
-        <div class='Commercial_Flight'>
-            <input type='radio' id='Commercial_Flight_Yes' name='flight_type'
-                   value='0.0' />
-            <label for='Commercial_Flight'>Commercial</label>
-        </div>
-
-        <div class='Commercial_Flight'>
-            <input type='radio' id='Commercial_Flight_No' name='flight_type'
-                   value='0.0' />
-            <label for='Commercial_Flight_No'>Private</label>
-        </div>
-
-    </fieldset>
-<br>
-  <div>
-    <button id="submit">Make prediction</button>
-  </div>
   <br>
   Our prediction is:
   <br>
@@ -129,10 +186,11 @@
     <tr><td>Probability</td><td id="soft_predict"></td></tr>
   </table>
 
-  <img width="100%" src='' id='gif'/>
+  <img width="60%" src='' id='gif'/>
 
 </body>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="/Users/brendenrossin/github/Project_Mcnulty/templates/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   <script>
 
 

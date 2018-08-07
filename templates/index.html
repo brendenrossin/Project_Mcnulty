@@ -178,19 +178,23 @@
 </div>
 
 <br>
-  <br>
-  Our prediction is:
-  <br>
-  <table>
-    <tr><td>You will</td><td id="hard_predict"></td></tr>
-    <tr><td>Probability</td><td id="soft_predict"></td></tr>
-  </table>
 
-  <img width="60%" src='' id='gif'/>
+<div class="jumbotron">
+	<div class="container">
+		<h1>Our prediction is:</h1>
+		<p>You will</p><p id="hard_predict"></p>
+		<br>
+	</div>
+</div>
+
+
+<img width="100%" src='' id='gif'/>
 
 </body>
+
+
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="/Users/brendenrossin/github/Project_Mcnulty/templates/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
   <script>
 
 
@@ -247,6 +251,8 @@
       success: (result) => {
         $('#hard_predict').html(result['prediction'] ? 'be totally fine man!' : 'die in a burning blaze of hellfire!' );
         $('#soft_predict').html(result['prob_fatal']);
+        $('#actual_predict').html(result['true_prob']);
+
 
         render_crashimage(result['prediction']);
       },

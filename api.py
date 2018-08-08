@@ -35,7 +35,8 @@ def make_prediction(features):
 
     result = {
         'prediction': int(prob_fatal < 0.5),
-        'prob_fatal': np.round(prob_fatal, 4)
+        'prob_fatal': (np.round(1 - prob_fatal, 2) * 100),
+        'true_prob': (np.round((abs(0.5 - prob_fatal) * 2), 2) * 100)
     }
     return result
 

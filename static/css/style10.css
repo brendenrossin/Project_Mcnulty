@@ -1,0 +1,56 @@
+body {
+    background-color: #eff0f1;
+	font-family: 'Montserrat', sans-serif;
+}
+
+h1,
+h2 {
+	font-weight: bold;
+}
+p {
+	font-size: 16px;
+	color: #cdcdcd;
+}
+
+.jumbotron {
+	background: #005b96;
+	color: white;
+	text-align: center;
+}
+.jumbotron p {
+	color: yellow;
+	font-size: 26px;
+}
+
+.jumbotron span, h3 {
+	font-size: 26px;
+}
+
+.panel-body {
+    color: black;
+    text-align: center;
+}
+
+.navbar-inverse {
+	background: #2E2F31;
+	border: 0;
+}
+.navbar-inverse .navbar-nav li a {
+	color: #f7f7f7;
+	font-size: 16px;
+}
+.navbar-inverse .navbar-nav li a:hover {
+	background: #005b96;
+}
+
+.dropdown-menu {
+	background: #005b96;
+	border-radius: 0;
+	border: 0;
+}
+.dropdown-menu li a {
+	padding: 10px;
+}
+.navbar-inverse .navbar-nav .dropdown-menu li a:hover {
+	background: #2C463C;
+}

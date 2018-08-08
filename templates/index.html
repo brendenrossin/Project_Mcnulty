@@ -43,8 +43,6 @@
 	<div class="container">
 		<h1>Want to fly? Don't die!</h1>
 		<p>Plane crashes happen. Let us make sure you come out alive. Choose flight parameters below.</p>
-		<br>
-		<p><a class="btn btn-primary btn-lg" href="#" id="submit" role="button">Make prediction</a></p>
 	</div>
 </div>
 
@@ -181,14 +179,21 @@
 
 <div class="jumbotron">
 	<div class="container">
-		<h1>Our prediction is:</h1>
-		<p>You will</p><p id="hard_predict"></p>
-		<br>
-	</div>
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+            <h3 class="panel-title">Crash status: <span id="hard_predict"></span></h3>
+          </div>
+          <div class="panel-body">
+            <p>Your probability of survival is: <span id="soft_predict"></span>%</p>
+          </div>
+      </div>
+    <p><a class="btn btn-primary btn-lg" href="#" id="submit" role="button">Make prediction</a></p>
+
+    <img width="90%" src='' id='gif' align: 'middle'/>
 </div>
 
 
-<img width="100%" src='' id='gif'/>
+
 
 </body>
 
@@ -249,7 +254,7 @@
       async: true,
       data: JSON.stringify(features),
       success: (result) => {
-        $('#hard_predict').html(result['prediction'] ? 'be totally fine man!' : 'die in a burning blaze of hellfire!' );
+        $('#hard_predict').html(result['prediction'] ? 'no one will die, but there will be baggage' : 'terminal... stay in the terminal!' );
         $('#soft_predict').html(result['prob_fatal']);
         $('#actual_predict').html(result['true_prob']);
 

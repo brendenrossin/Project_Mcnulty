@@ -214,12 +214,16 @@
 
         case true:
          console.log('this is true ' + prediction)
-         img.src='/static/images/alive.gif';
+         var gifs = Array('alive','jim_alive','rapper_alive','snl_alive')
+         var item = gifs[Math.floor(Math.random()*gifs.length)];
+         img.src='/static/images/' + item + '.gif';
          break;
 
         case false:
          console.log('this is false ' + prediction)
-         img.src='/static/images/fatal.gif';
+         var fgifs = Array('fatal','office_fatal','r2_fatal','dog_fatal')
+         var fitem = fgifs[Math.floor(Math.random()*fgifs.length)];
+         img.src='/static/images/' + fitem + '.gif';
          break;
       }
 

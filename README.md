@@ -1,7 +1,7 @@
 # Readme
 
 # Project_Mcnulty
-Third project at Metis Data Science Bootcamp
+Third project at Metis Data Science Bootcamp. Final project jupyter notebook is titled MCNULTY_SUNDAY.ipynb
 
 ## Worklist
 Here is my checklist of things to do:
@@ -17,6 +17,8 @@ Here is my checklist of things to do:
 * Hyperparameter tuning and check best for each model
 * kfold Cross Validation and learning curves
 * ROC/AUC
+* Create flask app -- use bootstrap to make it look nice
+* Make presentation
 
 | Person | Responsibility |
 | --- | --- |

@@ -1,7 +1,10 @@
 # Readme
 
 # Project_Mcnulty
-Third project at Metis Data Science Bootcamp. Final project jupyter notebook is titled MCNULTY_SUNDAY.ipynb
+Third project at Metis Data Science Bootcamp.
+
+* Final project jupyter notebook is titled MCNULTY_SUNDAY.ipynb
+* SQL is included at the bottom of McNulty_PSQL.ipynb
 
 ## Worklist
 Here is my checklist of things to do:
